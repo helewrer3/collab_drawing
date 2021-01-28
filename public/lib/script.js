@@ -1,8 +1,7 @@
 window.addEventListener('load', () => {
     window.alert("To begin collaboration, share your URL with your teammates and start drawing when everyone has joined!")
-    const socket = io(), canvas = document.querySelector('#canvas'), ctx = canvas.getContext('2d'), 
-    colors = ["tomato", "steelblue", "teal", "black", "goldenrod", "fuchsia", "peru", "lightskyblue", "greenyellow", "olive", "darkred", "indigo", "midnightblue"]
-    let isDragging = false, color = colors[Math.floor(Math.random()*colors.length)], wid = 10, type = 'round'
+    const socket = io(), canvas = document.querySelector('#canvas'), ctx = canvas.getContext('2d')
+    let isDragging = false, color = getRandomColor(), wid = 10, type = 'round'
     canvas.height = window.innerHeight
     canvas.width = window.innerWidth
     
@@ -56,3 +55,10 @@ window.addEventListener('load', () => {
     canvas.addEventListener('mouseup', endPos)
     canvas.addEventListener('mousemove', paint)
 })
+
+function getRandomColor() {
+    let letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) color += letters[Math.floor(Math.random() * 16)];
+    return color;
+}
