@@ -31,4 +31,5 @@ To run this app locally, you need to have [NodeJS](https://nodejs.org/en/) insta
 + Eraser
 
 ## Expandability
-A web framework like Angular, React etc can be implemented to make the front-end even more appealing to the eyes.
++ Currently the app does not work on mobile devices, so a functionality for the same can be added in the future.
++ A web framework like Angular, React etc can be implemented to make the front-end even more appealing to the eyes.
