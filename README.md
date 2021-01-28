@@ -1,13 +1,13 @@
 # Collaborating Drawing App
 A small little drawing webapp made using [Socket.io](https://socket.io/) and [NodeJS](https://nodejs.org/en/) where users can collaborate with their teammates/friends to make designs and/or have fun!
 
-## A Heroku deployment is being worked upon.
+### The app has been deployed on [Heroku](https://sketchewrer3.herokuapp.com/)!
 
 ## Technologies Used
 + NodeJS
 + Express
 + Canvas
-+ Socket‎‎‎‎‎‏‏‎‏‏‎&#46;io
++ Socket&#46;io
 + HTML, CSS, Javascript
 
 ## Usage
