@@ -1,7 +1,7 @@
 window.addEventListener('load', () => {
-    window.alert("To begin collaboration, share your URL with your teammates and start drawing when everyone has joined!")
+    window.alert("To begin collaboration, share your URL with your teammates and start drawing when everyone has joined!\nControls:\nE - Toggles Eraser\nP - Toggles Pen")
     const socket = io(), canvas = document.querySelector('#canvas'), ctx = canvas.getContext('2d')
-    let isDragging = false, color = getRandomColor(), wid = 10, type = 'round'
+    let isDragging = false, color = getRandomColor(), wid = 10, type = 'round', og_color = color
     canvas.height = window.innerHeight
     canvas.width = window.innerWidth
     
@@ -50,6 +50,11 @@ window.addEventListener('load', () => {
             socket.emit('isdrawing', {x: e.clientX, y: e.clientY, color: color, url: window.location.pathname})
         }
     }
+
+    document.addEventListener('keydown', (e2) => {
+        if(e2.key == 'e')color = 'white'
+        if(e2.key == 'p')color = og_color
+    })
 
     canvas.addEventListener('mousedown', startPos)
     canvas.addEventListener('mouseup', endPos)
