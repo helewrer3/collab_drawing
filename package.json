@@ -1,0 +1,21 @@
+{
+  "name": "socket_drawing",
+  "version": "1.0.0",
+  "description": "A simple and fun app about drawing with friends.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [
+    "fun",
+    "simple",
+    "collaboration"
+  ],
+  "author": "helewrer3",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "shortid": "^2.2.16",
+    "socket.io": "^3.1.0"
+  }
+}
