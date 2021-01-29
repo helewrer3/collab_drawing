@@ -27,7 +27,6 @@ To run this app locally, you need to have [NodeJS](https://nodejs.org/en/) insta
 
 ## Todo
 + Dynamic resizing of canvas, currently the canvas size is limited to the dimensions your browser had when you first entered the site.
-+ Pen color picker
 
 ## Expandability
 + Currently the app does not work on mobile devices, so a functionality for the same can be added in the future.
