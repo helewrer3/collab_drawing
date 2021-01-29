@@ -17,12 +17,6 @@ io.on('connection', (socket) => {
     socket.on('login', (data) => {
         socket.join(data.url)
     })
-    socket.on('isstarting', (data) => {
-        socket.to(data.url).emit('getstarting');
-    })
-    socket.on('isending', (data) => {
-        socket.to(data.url).emit('getending');
-    })
     socket.on('isdrawing', (data) => {
         socket.to(data.url).emit('getdrawing', data);
     })
