@@ -1,9 +1,75 @@
 *{
+    width: 99vw;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
 #canvas{
-    border: 5px solid grey;
+    border: 3px dashed grey;
 }
+
+#top-bar{
+    display: flex;
+    align-items: center;
+    height: 4vh;
+    background-color: #2d2d2d;
+}
+
+#color-bar{
+    max-width: 200px;
+    margin-left: 2%;
+}
+
+#number-label{
+    margin-left: 10px;
+    max-width: 45px;
+    height: 17px;
+    background-color:darkslategray;
+    border: none;
+    color: white;
+}
+
+#stroke-bar{
+    max-width: 75px;
+    margin-left: 1px;
+}
+
+#eraser-btn{
+    border: none;
+    border-radius: 10px;
+    padding: 1px 6px;
+    color: white;
+    background-color:cadetblue;
+    max-width: 75px;
+    font-size: medium;
+    margin-left: 10px;
+}
+
+#pen-btn{
+    border: none;
+    border-radius: 10px;
+    padding: 1px 6px;
+    color: white;
+    background-color: teal;
+    max-width: 75px;
+    font-size: medium;
+    margin-left: 10px;
+}
+
+#title-text{
+    font-size: xx-large;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: bold;
+    color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-right: 2%;
+}
+
+@media only screen and (max-width: 800px) {
+    #title-text{
+      font-size: medium;
+    }
+  }

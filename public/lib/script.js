@@ -1,19 +1,17 @@
 window.addEventListener('load', () => {
-    window.alert("To begin collaboration, share your URL with your teammates and start drawing when everyone has joined!\nControls:\nE - Toggles Eraser\nP - Toggles Pen")
+    window.alert("To begin collaboration, share your URL with your teammates and start drawing when everyone has joined!")
     const socket = io(), canvas = document.querySelector('#canvas'), ctx = canvas.getContext('2d')
     let isDragging = false, color = getRandomColor(), wid = 10, type = 'round', og_color = color
     canvas.height = window.innerHeight
     canvas.width = window.innerWidth
-    
+    document.getElementById('color-bar').value = og_color
+    document.getElementById('stroke-bar').value = wid
+
     socket.emit('login', {url: window.location.pathname})
 
-    socket.on('getstarting', () => {
-        ctx.beginPath()
-    })
+    socket.on('getstarting', () => {ctx.beginPath()})
     
-    socket.on('getending', () => {
-        ctx.beginPath()        
-    })
+    socket.on('getending', () => {ctx.beginPath()})
     
     socket.on('getdrawing', (data) => {
         ctx.lineWidth = wid
@@ -43,18 +41,18 @@ window.addEventListener('load', () => {
             ctx.lineWidth = wid
             ctx.lineCap = type
             ctx.strokeStyle = color
-            ctx.lineTo(e.clientX, e.clientY)
+            ctx.lineTo(e.offsetX, e.offsetY)
             ctx.stroke()
             ctx.beginPath()
-            ctx.moveTo(e.clientX, e.clientY)
-            socket.emit('isdrawing', {x: e.clientX, y: e.clientY, color: color, url: window.location.pathname})
+            ctx.moveTo(e.offsetX, e.offsetY)
+            socket.emit('isdrawing', {x: e.offsetX, y: e.offsetY, color: color, url: window.location.pathname})
         }
     }
 
-    document.addEventListener('keydown', (e2) => {
-        if(e2.key == 'e')color = 'white'
-        if(e2.key == 'p')color = og_color
-    })
+    document.getElementById('eraser-btn').onclick = () => color='white'
+    document.getElementById('pen-btn').onclick = () => color=og_color
+    document.getElementById('color-bar').onchange = () => color = og_color = document.getElementById('color-bar').value
+    document.getElementById('stroke-bar').onchange = () => wid = document.getElementById('stroke-bar').value
 
     canvas.addEventListener('mousedown', startPos)
     canvas.addEventListener('mouseup', endPos)
